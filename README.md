@@ -2,6 +2,7 @@
 
 Basic Auto Farm Script For RCDS
 
+HALLOWEEN AutoFarm
 ```lua
 asd = game.Workspace.Pumpkins
 
@@ -21,6 +22,29 @@ task.spawn(function()
 	end
 end)
 
+```
+
+Money AutoFarm
+```lua
+local start = game.Workspace.Jobs["Грузчик"].Base
+local finish = game.workspace.Jobs['Грузчик'].Finish
+local lpr = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+if lpr then
+    task.spawn(function()
+        while task.wait() do
+            lpr.CFrame = start.CFrame
+            task.wait(0.5)
+            for _ = 1, 3 do
+                fireproximityprompt(start.ProximityPrompt)
+            end
+            task.wait(0.5)
+            lpr.CFrame = finish.CFrame
+        end
+    end)
+else
+    warn("HumanoidRootPart or ProximityPrompt not found.")
+end
 ```
 
 How To Use:
